@@ -145,7 +145,7 @@ Clone the repository:
 ```
 Bash
 
-git clone <your-repository-url>
+git clone https://github.com/muteealjabri9/task-managment-api.git
 ```
 Navigate to the project directory:
 
