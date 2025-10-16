@@ -35,9 +35,11 @@ public class FakeDataSource implements MainRepository {
 
     @Override
     public boolean deleteTask(Task task) {
-        this.taskList
-                .remove(task);
-        return false;
+        try {
+        return this.taskList.remove(task);
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override

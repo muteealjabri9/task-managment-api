@@ -20,12 +20,12 @@ public class TasksRestController {
 
     @PostMapping("/addTask")
     public boolean addTask(@RequestBody AddingTaskRequestBody addingTaskRequestBody){
-        return mainRepository.addTask(addingTaskRequestBody.createTaskModel());
+        Task savedTask=addingTaskRequestBody.createTaskModel();
+        return mainRepository.addTask(savedTask);
     }
 
     @PutMapping("/updateTask")
     public boolean updateTask(@RequestBody Task task){
-
         return mainRepository.updateTask(task);
     }
     @DeleteMapping("/deleteTask")
@@ -33,19 +33,19 @@ public class TasksRestController {
         return mainRepository.deleteTask(task);
     }
     @PutMapping("/doneTask")
-    public boolean doneTask(Task task){
+    public boolean doneTask(@RequestBody Task task){
         return mainRepository.doneTask(task);
     }
     @GetMapping("/allTasks")
     public List<Task> getAllTasks(){
         return mainRepository.getAllTasks();
     }
-    @GetMapping("/doneTasks")
+    @GetMapping("/undoneTasks")
     public List<Task> getAllUndoneTasks(){
         return  mainRepository.getAllUndoneTasks();
     }
 
-    @GetMapping("/undoneTasks")
+    @GetMapping("/doneTasks")
     public List<Task> getAllDoneTasks(){
         return mainRepository.getAllDoneTasks();
     }
